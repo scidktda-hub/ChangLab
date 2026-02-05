@@ -1,0 +1,499 @@
+/* CSS Variables for Brand Colors */
+:root {
+    --primary-color: #001D3D;
+    /* Dark Blue */
+    --accent-color: #FFD60A;
+    /* Yellow */
+    --text-color: #333333;
+    /* Dark text for light background */
+    --white: #ffffff;
+    --bg-page: #f0f7ff;
+    /* Light Blue Background */
+    --gray-light: #e6eff8;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --container-width: 1200px;
+    --font-main: 'Be Vietnam Pro', sans-serif;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: var(--font-main) !important;
+}
+
+body {
+    color: var(--text-color);
+    line-height: 1.8;
+    background-color: var(--bg-page);
+    /* Light blue for whole page */
+    font-size: 1.1rem;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+}
+
+p,
+li {
+    color: #555;
+}
+
+p {
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+ul {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* --- NAVIGATION --- */
+.header {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    /* Remove invert as background is now light */
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--primary-color);
+}
+
+/* --- HERO SECTION (Split Layout) --- */
+.hero {
+    background-color: var(--bg-page);
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.hero__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero__tag {
+    display: inline-block;
+    background: #e1efff;
+    color: var(--primary-color);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.hero__title {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.hero__highlight {
+    font-size: 4rem;
+    color: #4da3ff;
+    /* Lighter blue highlight */
+    margin-bottom: 1.5rem;
+}
+
+/* --- AI PAGE-BY-PAGE SLIDER WITH FLIP --- */
+.ai-slider-container {
+    position: relative;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.ai-slider-wrapper {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.ai-page {
+    min-width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Card Container */
+.ai-flip-card {
+    width: 100%;
+    max-width: 1000px;
+    height: 550px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.ai-flip-card__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.ai-flip-card.flipped .ai-flip-card__inner {
+    transform: rotateY(180deg);
+}
+
+.ai-flip-card__front,
+.ai-flip-card__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 40px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    background: var(--primary-color);
+    /* Dark blue cards */
+    box-shadow: 0 30px 60px rgba(0, 29, 61, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ai-flip-card__front {
+    gap: 4rem;
+    text-align: left;
+}
+
+.ai-flip-card__front h3,
+.ai-flip-card__front p {
+    color: var(--white);
+}
+
+.ai-flip-card__back {
+    background: #00234a;
+    /* Slightly different dark blue */
+    transform: rotateY(180deg);
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ai-page__content h3 {
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.ai-page__img img {
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.flip-hint {
+    margin-top: 2rem;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(0, 29, 61, 0.1);
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+}
+
+.slider-dot.active {
+    background: var(--primary-color);
+    width: 30px;
+}
+
+.hero__desc {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 2rem;
+    max-width: 90%;
+}
+
+.hero__features {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.hero__features li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.hero__features i {
+    color: #10b981;
+    /* Success green check */
+}
+
+.hero__btns {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn {
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.btn--primary {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.btn--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 214, 10, 0.3);
+}
+
+.btn--outline {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    color: var(--text-color);
+}
+
+.btn--outline:hover {
+    background-color: var(--white);
+    border-color: var(--primary-color);
+}
+
+/* Hero Media with Play Button */
+.hero__media {
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero__media .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+    border: none;
+}
+
+.hero__media .play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.hero__media .play-btn i {
+    color: var(--primary-color);
+    fill: var(--primary-color);
+    margin-left: 5px;
+}
+
+/* SECTION STRUCTURE: Title -> Text -> Image */
+.section-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.section-main-image {
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+}
+
+/* SECTION 2: JOURNEY (ACCORDION) */
+.accordion {
+    max-width: 850px;
+    margin: 80px auto 0;
+}
+
+.accordion__item {
+    background-color: #fcfcfc;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+}
+
+.accordion__header {
+    padding: 25px 35px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 25px;
+}
+
+.accordion__header h3 {
+    font-size: 1.5rem;
+}
+
+.accordion__content {
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+/* SECTION 3: AI LIST (CARDS) */
+.ai-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 60px;
+}
+
+.ai-card {
+    height: 500px;
+}
+
+/* ABOUT SECTION */
+.about {
+    background-color: var(--bg-color);
+}
+
+.about__text-box {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* CONNECT SECTION */
+.connect {
+    background-color: var(--bg-color);
+}
+
+.connect-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.connect-form-wrapper {
+    background-color: #fcfcfc;
+    padding: 50px;
+    border-radius: 24px;
+    border: 1px solid #f0f0f0;
+}
+
+/* FOOTER */
+.footer {
+    padding: 60px 0;
+    text-align: center;
+    background-color: var(--bg-color);
+    border-top: 1px solid #eee;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .connect-container {
+        grid-template-columns: 1fr;
+    }
+}
