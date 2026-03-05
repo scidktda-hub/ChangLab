@@ -1,0 +1,12 @@
+.agent/
+.gemini/
+brain/
+*.md
+!README.md
+!AI_LIST/
+!AI_Presentation/
+!IMAGE/
+!index.html
+!script.js
+!style.css
+!Mausac_template.jpg
