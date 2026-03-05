@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             // QUAN TRỌNG: URL này phải kết thúc bằng /exec
-            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyjhOzgm4A8u97ywEhXaRtFuJ7aeWxGcscUaffWYKYWYB9xrf1EnXc6ex8aSOcNEBZR/exec';
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxbLMJwJaKLwzFFnyGTFarfPFTwMC-Ex7zuB1l9yLLBDoInccLYog51sV0p4FCt9BM95A/exec';
 
             if (SCRIPT_URL === '' || SCRIPT_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_URL')) {
                 showStatus('Vui lòng cấu hình URL Google Script để gửi form.', '#e74c3c');
